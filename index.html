@@ -1,0 +1,57 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW Alter</title>
+</head>
+<body>
+<p>
+    Замовлення турів:
+</p>
+<p>
+    Пишемо реєстрацію користувача за допомогою prompt.  Окремо логін та пароль. Валідацію не потрібно робити.
+</p>
+<p>
+    Аналогічно пишемо логінізацію: запитуємо логін та пароль, порівнюємо їх з даними, які були введені при авторизації. 
+    Якщо все вірно - виводимо в консоль, що логін успішний. Якщо ні - знову запитуємо логін та пароль.
+</p>
+<p>
+    Запитуємо максимальну суму, яку готовий витратити користувач на тур.
+</p>
+<p>
+    Виводимо список усіх країн в alert, які доступні по сумі для користувача.
+</p>
+<p>
+    Вказуємо країну через prompt  і купляємо тур.
+</p>
+<p>
+    Виводимо повідомлення, що тур оплачений і залишок на рахунку користувача.
+</p>
+<p>
+    Дані, які вам знадобляться:
+</p>
+<pre>
+    const countries = [
+      "Ukraine",
+      "Poland",
+      "Croatia",
+      "Montenegro",
+      "France",
+      "USA",
+    ];
+    
+    const countriesPrice = [100, 200, 300, 400, 500, 600];
+    
+    let userName;
+    let userPass;
+    let userCredits;
+    let userCountry;
+    let maxPrice;
+</pre> 
+<button type="button" onclick="userRegistration()">Реєстрація</button>
+<button type="button" onclick="userLogin()">Увійти</button>
+<button type="button" onclick="pickUserCountry()">Підібрати і замовити країну</button>
+<script src="js/hw.js"></script>
+</body>
+</html>
