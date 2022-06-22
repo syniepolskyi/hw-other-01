@@ -1,3 +1,5 @@
+
+
 const countries = [
     "Ukraine",
     "Poland",
@@ -18,8 +20,22 @@ const countries = [
 
   const userRegistration = function(){
       let userName = prompt("New user :: name:");
+      if(typeof(userName) !== "string" || userName.replaceAll(" ","") === "" ){
+        alert("Значення userName не може бути порожнім, користувача не зареєстровано");
+        return;
+      }
       let userPass = prompt("New user :: password:");
+      if(typeof(userPass) !== "string"){
+        alert("Пароль користувача не задано, користувача не зареєстровано");
+        return;
+      }
       let userCredits = prompt("New user :: credits:");
+      userCredits = parseFloat(userCredits);
+
+      if (isNaN(userCredits) || Math.abs(userCredits) === Infinity ){
+          alert("Неправильне значення userCredits, користувача не зареєстровано");
+          return ;
+      }
       users.push({
         name: userName,
         pass: userPass,
@@ -45,7 +61,7 @@ const countries = [
     loginAttempts++;
     if(loginAttempts < maxLoginAttempts){
         alert(`Невірний логін або пароль. Спроб входу: ${loginAttempts} з ${maxLoginAttempts}`)
-        userLogin();
+        return userLogin();
     }
     alert(`Забагато спроб входу`);
     loginAttempts = 0;
@@ -62,6 +78,10 @@ const pickUserCountry = function(){
     let maxPrice = prompt("Max price:");
     let userCountries = [];
     maxPrice = parseFloat(maxPrice);
+    if (isNaN(maxPrice) || Math.abs(maxPrice) === Infinity ){
+        alert(`Значення maxPrice не вірне`);
+        return;
+    }
     if (maxPrice > users[currentUserIndex].credits){
         alert(`Значення maxPrice не може бути більше, ніж у Вас кредитів (${users[currentUserIndex].credits})`);
         return;
